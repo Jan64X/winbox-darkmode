@@ -5,7 +5,7 @@ git, wget, wine
 
 Steps:
 * git clone httos://github.com/Jan64X/winbox-darkmode.git
-* cd winbox-darkmode.git
+* cd winbox-darkmode
 * cd src
 * chmod +x ./script.sh
 * ./script.sh

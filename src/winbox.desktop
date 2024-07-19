@@ -2,7 +2,7 @@
 Type=Application
 Version=1.0
 Name=Winbox
-Comment=GUI administration for Mikrotik RouterOS
+Comment=GUI administration for Mikrotik RouterOS - DarkMode mod by Jan64X
 Exec=/usr/bin/winbox
 Icon=winbox
 Terminal=false

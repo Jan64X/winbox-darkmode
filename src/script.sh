@@ -26,6 +26,10 @@ xdg-icon-resource forceupdate
 # no clue if this is needed for the root user so why not do it here too
 sudo update-desktop-database -q
 sudo xdg-icon-resource forceupdate
+echo " !! THE SCRIPT IS GOING TO OPEN A WINE SETUP WINDOW, "
+echo "LET IT RUN AND WHEN NORMAL WINBOX OPENS, CLOSE IT !!"
+# run before doing the reg edit to generate a wine config
+/usr/bin/winbox
 # reg edit ahead
 WINEPREFIX=$HOME/.winbox/wine /usr/bin/wine regedit winbox-darkmode.reg
 # script done hopefully

@@ -1,11 +1,11 @@
 #!/bin/bash
-print "THIS SCRIPT NEEDS TO BE RUN AS YOUR USER AND **NOT** ROOT"
-print "A SUDO PRINT COMMAND WILL BE RUN AT THE START WHICH YOU NEED TO CONFIRM"
-print "MAKE SURE TO HAVE AN ACTIVE AND STABLE INTERNET CONNECTION"
-print "make SURE that you have wine installed"
+echo "THIS SCRIPT NEEDS TO BE RUN AS YOUR USER AND **NOT** ROOT"
+echo "A SUDO PRINT COMMAND WILL BE RUN AT THE START WHICH YOU NEED TO CONFIRM"
+echo "MAKE SURE TO HAVE AN ACTIVE AND STABLE INTERNET CONNECTION"
+echo "make SURE that you have wine installed"
 sleep 15
-print "Please confirm the next sudo ask."
-sudo print "sudo command OK"
+echo "Please confirm the next sudo ask."
+sudo echo "sudo command OK"
 mkdir src-winbox
 cd src-winbox
 git clone https://github.com/Jan64X/winbox-darkmode.git winbox
@@ -29,4 +29,4 @@ sudo xdg-icon-resource forceupdate
 # reg edit ahead
 WINEPREFIX=$HOME/.winbox/wine /usr/bin/wine regedit winbox-darkmode.reg
 # script done hopefully
-print "check if anything errored out and if not then you should have a nice winbox with dark mode :D"
+echo "check if anything errored out and if not then you should have a nice winbox with dark mode :D"

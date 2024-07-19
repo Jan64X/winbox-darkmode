@@ -1,4 +1,13 @@
 # winbox-darkmode
 Dark mode for the Mikrotik Winbox program
+Prerequisites:
+git, wget, wine
 
-Just git clone this repo and run the script.sh inside the src subdirectory and everything should be installed for you!
+Steps:
+* git clone httos://github.com/Jan64X/winbox-darkmode.git
+* cd winbox-darkmode.git
+* cd src
+* chmod +x ./script.sh
+* ./script.sh
+
+And now the script should tell you what to do.

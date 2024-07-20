@@ -41,7 +41,7 @@ echo "LET IT RUN AND WHEN NORMAL WINBOX WINDOW OPENS, CLOSE IT !!"
 pkill_loop() {
     while true; do
         sleep 2
-        pkill winbox
+        pkill winbox.exe
         if [[ $? -eq 0 ]]; then
             echo "winbox process killed."
             break

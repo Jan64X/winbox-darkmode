@@ -6,31 +6,41 @@ echo "make SURE that you have wine installed"
 sleep 15
 echo "Please confirm the next sudo ask."
 sudo echo "sudo command OK"
+echo "preparing dirs..."
 mkdir src-winbox
 cd src-winbox
+echo "git cloning the repo..."
 git clone https://github.com/Jan64X/winbox-darkmode.git winbox
 cd winbox
 cd src
+echo "copying required files..."
 sudo cp ./winbox /usr/bin/
 sudo chmod +x /usr/bin/winbox
+echo "getting winbox 3.40 from mikrotik.com..."
 wget https://download.mikrotik.com/routeros/winbox/3.40/winbox64.exe
 mv winbox64.exe winbox.exe
+echo "preparing for user launchable .desktop file"
 sudo mkdir /usr/share/winbox
 sudo cp ./winbox.exe /usr/share/winbox/winbox.exe
 sudo cp winbox.png /usr/share/pixmaps/
 sudo cp winbox.desktop /usr/share/applications/
 sudo chmod +x /usr/share/applications/winbox.desktop
 # update the desktop icons, since we just changed them
+echo "updating .desktop database..."
+echo "if the X thing errors out then don't panic, that's normal"
 update-desktop-database -q
 xdg-icon-resource forceupdate
 # no clue if this is needed for the root user so why not do it here too
 sudo update-desktop-database -q
 sudo xdg-icon-resource forceupdate
 echo " !! THE SCRIPT IS GOING TO OPEN A WINE SETUP WINDOW, "
-echo "LET IT RUN AND WHEN NORMAL WINBOX OPENS, CLOSE IT !!"
+echo "LET IT RUN AND WHEN NORMAL WINBOX WINDOW OPENS, CLOSE IT !!"
 # run before doing the reg edit to generate a wine config
+echo "running winbox..."
 /usr/bin/winbox
 # reg edit ahead
+echo "winbox closed gracefully, continuing..."
+echo "editing registry to add dark mode .reg file"
 WINEPREFIX=$HOME/.winbox/wine /usr/bin/wine regedit winbox-darkmode.reg
 # script done hopefully
 echo "check if anything errored out and if not then you should have a nice winbox with dark mode :D"

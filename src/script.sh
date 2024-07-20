@@ -34,13 +34,13 @@ xdg-icon-resource forceupdate
 sudo update-desktop-database -q
 sudo xdg-icon-resource forceupdate
 echo " !! THE SCRIPT IS GOING TO OPEN A WINE SETUP WINDOW, "
-echo "LET IT RUN AND WHEN NORMAL WINBOX WINDOW OPENS, CLOSE IT !!"
+echo "LET IT RUN AND WINBOX WILL OPEN AND CLOSE AFTER A MOMENT!!"
 # run before doing the reg edit to generate a wine config
 # pkill script, remove this if automating doesnt work
 # Function to run pkill winbox every 2 seconds until it kills a process
 pkill_loop() {
     while true; do
-        sleep 2
+        sleep 5
         pkill winbox.exe
         if [[ $? -eq 0 ]]; then
             echo "winbox process killed."

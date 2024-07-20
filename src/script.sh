@@ -4,15 +4,18 @@ echo "A SUDO PRINT COMMAND WILL BE RUN AT THE START WHICH YOU NEED TO CONFIRM"
 echo "MAKE SURE TO HAVE AN ACTIVE AND STABLE INTERNET CONNECTION"
 echo "make SURE that you have wine installed"
 sleep 15
+# checking if root
+# terminate if true
+check_root() {
+    if [[ $EUID -eq 0 ]]; then
+        echo "This script should not be run as root. Terminating."
+        exit 1
+    fi
+}
+# call
+check_root
 echo "Please confirm the next sudo ask."
 sudo echo "sudo command OK"
-echo "preparing dirs..."
-mkdir src-winbox
-cd src-winbox
-echo "git cloning the repo..."
-git clone https://github.com/Jan64X/winbox-darkmode.git winbox
-cd winbox
-cd src
 echo "copying required files..."
 sudo cp ./winbox /usr/bin/
 sudo chmod +x /usr/bin/winbox

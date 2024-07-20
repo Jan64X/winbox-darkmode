@@ -1,9 +1,6 @@
 #!/bin/bash
-echo "THIS SCRIPT NEEDS TO BE RUN AS YOUR USER AND **NOT** ROOT"
 echo "A SUDO PRINT COMMAND WILL BE RUN AT THE START WHICH YOU NEED TO CONFIRM"
-echo "MAKE SURE TO HAVE AN ACTIVE AND STABLE INTERNET CONNECTION"
-echo "make SURE that you have wine installed"
-sleep 15
+sleep 5
 # checking if root
 # terminate if true
 check_root() {
@@ -39,6 +36,21 @@ sudo xdg-icon-resource forceupdate
 echo " !! THE SCRIPT IS GOING TO OPEN A WINE SETUP WINDOW, "
 echo "LET IT RUN AND WHEN NORMAL WINBOX WINDOW OPENS, CLOSE IT !!"
 # run before doing the reg edit to generate a wine config
+# pkill script, remove this if automating doesnt work
+# Function to run pkill winbox every 2 seconds until it kills a process
+pkill_loop() {
+    while true; do
+        pkill winbox
+        if [[ $? -eq 0 ]]; then
+            echo "winbox process killed."
+            break
+        fi
+        sleep 2
+    done
+}
+
+# Start the pkill loop in the background
+pkill_loop &
 echo "running winbox..."
 /usr/bin/winbox
 # reg edit ahead
@@ -47,3 +59,5 @@ echo "editing registry to add dark mode .reg file"
 WINEPREFIX=$HOME/.winbox/wine /usr/bin/wine regedit winbox-darkmode.reg
 # script done hopefully
 echo "check if anything errored out and if not then you should have a nice winbox with dark mode :D"
+echo "launching darkmode winbox"
+/usr/bin/winbox &

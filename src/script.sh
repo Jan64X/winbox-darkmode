@@ -59,5 +59,7 @@ echo "editing registry to add dark mode .reg file"
 WINEPREFIX=$HOME/.winbox/wine /usr/bin/wine regedit winbox-darkmode.reg
 # script done hopefully
 echo "check if anything errored out and if not then you should have a nice winbox with dark mode :D"
-echo "launching darkmode winbox"
+echo "running darkmode winbox"
+sleep 5
 /usr/bin/winbox &
+echo "done!"

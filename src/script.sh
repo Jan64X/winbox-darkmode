@@ -40,12 +40,12 @@ echo "LET IT RUN AND WHEN NORMAL WINBOX WINDOW OPENS, CLOSE IT !!"
 # Function to run pkill winbox every 2 seconds until it kills a process
 pkill_loop() {
     while true; do
+        sleep 2
         pkill winbox
         if [[ $? -eq 0 ]]; then
             echo "winbox process killed."
             break
         fi
-        sleep 2
     done
 }
 

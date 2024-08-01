@@ -16,8 +16,8 @@ sudo echo "sudo command OK"
 echo "copying required files..."
 sudo cp ./winbox /usr/bin/
 sudo chmod +x /usr/bin/winbox
-echo "getting winbox 3.40 from mikrotik.com..."
-wget https://download.mikrotik.com/routeros/winbox/3.40/winbox64.exe
+echo "getting winbox 3.41 from mikrotik.com..."
+wget https://download.mikrotik.com/routeros/winbox/3.41/winbox64.exe
 mv winbox64.exe winbox.exe
 echo "preparing for user launchable .desktop file"
 sudo mkdir /usr/share/winbox
